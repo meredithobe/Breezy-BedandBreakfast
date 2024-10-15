@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rooms</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eeeee5;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #dfdac9;
+            color: #5e7f61;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #78746b;
+        }
+        nav ul li a:hover {
+            color: #444d41; }
+        section {
+            padding: 20px;
+        }
+        .room-slider {
+            position: relative;
+            max-width: 400px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #444d41;
+        }
+        .room-slide {
+            display: none;
+            text-align: center;
+        }
+        .room-slide.active {
+            display: block;
+        }
+        .room-slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .room-slide h3 {
+    margin-top: 5px; /* Adjust this value as needed */
+    margin-bottom: 5px; /* Adjust this value as needed */
+}
+
+.room-slide p {
+    margin: 5px 0; /* Reduce margin above and below */
+}
+
+        .button-container {
+            margin-top: 10px;
+            justify-content: center;
+            display: flex;
+        }
+        button {
+            background-color: #fdd0a5;
+            border: none;
+            color: rgb(167, 105, 50);
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 0 40px;
+    
+        }
+        button:hover {
+            background-color: #f7a34e;
+        }
+        footer {
+        background-color: #ffcd90;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rooms</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="room-slider">
+            <div class="room-slide active">
+                <img src="peach room.pdf" alt="Room 1">
+                <h3>Floral Room</h3>
+                <p>Perfect for couples, featuring a stunning view and a queen-sized bed.</p>
+                <p>Price: $180/night</p>
+            </div>
+            <div class="room-slide">
+                <img src="single room.pdf" alt="Room 2">
+                <h3>Single Room</h3>
+                <p>Enjoy modern amenities and plenty of space for relaxation.</p>
+                <p>Price: $115/night</p>
+            </div>
+            <div class="room-slide">
+                <img src="Loft Room.pdf" alt="Room 3">
+                <h3>Luxury Loft Suite</h3>
+                <p>A lavish suite with a separate living area and breathtaking views.</p>
+                <p>Price: $250/night</p>
+            </div>
+            <div class="button-container">
+                <button onclick="changeSlide(-1)">Previous</button>
+                <button onclick="window.location.href='reservations.html';">Book Now</button> <!-- Link to reservations page -->
+                <button onclick="changeSlide(1)">Next</button>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;Breezy Bed & Breakfast</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function changeSlide(direction) {
+            const slides = document.getElementsByClassName("room-slide");
+            slides[currentSlide].classList.remove("active");
+
+            currentSlide += direction;
+
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1; // Wrap around to last slide
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0; // Wrap around to first slide
+            }
+
+            slides[currentSlide].classList.add("active");
+        }
+    </script>
+</body>
+</html>
+

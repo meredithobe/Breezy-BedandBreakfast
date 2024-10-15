@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Book Now</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeee5;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #dfdac9;
+            color: #5e7f61;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #78746b;
+        }
+        section {
+            padding: 20px;
+        }
+        h2 {
+            color: #e5a4ab;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #e5a4ab;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #e190bb;
+        }
+        footer {
+            background-color: #ffcd90;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reservations</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Book Your Stay</h2>
+        <p>Please fill out the form below to make a reservation. We will get back to you as soon as possible to confirm your booking.</p>
+
+        <form action="submit_reservation.php" method="post"> <!-- Update action to your server-side script -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <label for="room">Room Type:</label>
+            <select id="room" name="room" required>
+                <option value="">Select a room</option>
+                <option value="floral">Floral Room</option>
+                <option value="single">Single Room</option>
+                <option value="loft">Luxury Loft Suite</option>
+            </select>
+
+            <label for="message">Special Requests:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+
+            <button type="submit">Submit Reservation</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; Breezy Bed & Breakfast</p>
+    </footer>
+</body>
+</html>

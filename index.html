@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Breezy Bed & Breakfast</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eeeee5;
+    }
+    header {
+        background-color: #dfdac9;
+        color: #5e7f61;
+        padding: 20px;
+        text-align: center;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    nav ul li a {
+        text-decoration: none; /* Remove underline from links */
+        color: #78746b; /* Change link color */
+    }
+    nav ul li a:hover {
+        color: #444d41; /* Change color on hover */
+    }
+    section {
+        padding: 10px;
+    }
+    .slideshow {
+        position: relative;
+        max-width: 650px;
+        margin: 20px auto;
+        align-items: center;
+        overflow: visible;
+    }
+    .slide {
+        display: none;
+        width: 70%;
+        height: auto;
+    }
+    .slide.active {
+        display: block;
+    }
+    .slideshow img {
+        width: 60%;
+        border-radius: 10px;
+    }
+    footer {
+        background-color: #ffcd90;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+   
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Breezy Bed & Breakfast </h1>
+        <nav>
+            <ul> 
+                <li><a {text-decoration: none;} href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="about.html" onclick="showSection('about')">About</a></li>
+                <li><a href="rooms.html" onclick="showSection('rooms')">Rooms</a></li>
+                <li><a href="reservations.html" onclick="showSection('reservations')">Reservations</a></li>
+                <li><a href="contact.html" onclick="showSection('contact')">Contact</a></li>
+                
+            
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2><center>Bed and Breakfast in Wonderland, MO</center></h2>
+        <div class="slideshow"><center>
+            <img src="peach room.pdf" alt="Floral Room" class="slide active">
+            <img src="Loft Room.pdf" alt="Loft Room" class="slide">
+            <img src="House.pdf" alt="House View" class="slide"></center>
+        </div>
+    </section>
+
+
+    <section id="rooms" class="hidden">
+        <h2><center>A Preview to Our Rooms</center></h2>
+        <div class="room-gallery">
+            <div class="room">
+                <h3>Floral Room</h3>
+                <p>Cozy and comfortable with a stunning view.</p>
+                <p>Price: $180/night</p>
+            </div>
+            <div class="room">
+                <h3>Luxurious Loft Suite</h3>
+                <p>Spacious with modern amenities.</p>
+                <p>Price: $250/night</p>
+            </div>
+            <div class="room">
+                <h3>Cozy & Playful Single Room</h3>
+                <p>A light and fun room for the single traveler.</p>
+                <p>Price: $115/night</p>
+            </div>
+        </div>
+    </section>
+
+
+<section id="contact" class="hidden"><center>
+        <h2>Contact</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div id="map">
+            <p>Located at 286 Breezy Ln, Wonderland, MO</p>
+        </div></center>
+    </section>
+
+    <footer>
+        <p>&copy; Breezy Bed & Breakfast</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Initialize to show the home section by default
+        showSection('home');
+    </script>
+</body>
+</html>
+
